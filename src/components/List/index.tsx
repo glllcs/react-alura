@@ -6,14 +6,17 @@ function List() {
         task: 'React',
         time: '02:00:00'
     }, {
-        task: 'Javascript',
+        task: 'Django',
         time: '01:00:00'
     }, {
-        task: 'Typescript',
-        time: '01:30:00'
+        task: 'Machine learning',
+        time: '01:00:00'
     }, {
         task: 'Rust',
-        time: '03:00:00'
+        time: '01:00:00'
+    }, {
+        task: 'Data Science',
+        time: '01:00:00'
     }]
     return (
         <aside className={style.tasksList}>
