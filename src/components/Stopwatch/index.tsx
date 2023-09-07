@@ -16,9 +16,8 @@ export default function Stopwatch({ selectedTask, finishTask }: Props) {
     // set time only when selectedTask changes
     useEffect(() => {
         if (selectedTask?.time) {
-            setTime(timeToSeconds(selectedTask.time))
+            setTime(timeToSeconds(selectedTask.time));
         }
-        finishTask();
     }, [selectedTask])
 
     function countdown(counter: number = 0) {
@@ -27,6 +26,7 @@ export default function Stopwatch({ selectedTask, finishTask }: Props) {
                 setTime(counter - 1);
                 return countdown(counter - 1);
             }
+            finishTask();
         }, 1000);
     }
 
