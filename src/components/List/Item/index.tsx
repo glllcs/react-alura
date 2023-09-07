@@ -1,5 +1,5 @@
 import { ITask } from "../../../types/task";
-import style from "../List.module.scss";
+import style from "./Item.module.scss";
 
 interface Props extends ITask {
     selectTask: (selectedTask: ITask) => void
@@ -23,7 +23,7 @@ export default function Item(
                 finished,
                 id
             })}
-            className={`${style.item} ${selected ? style.selectedIem : ''}`}
+            className={`${style.item} ${selected && style.selectedIem}`}
         >
             <h3>{task}</h3>
             <span>{time}</span>
