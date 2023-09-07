@@ -19,6 +19,15 @@ export default function Stopwatch({ selectedTask }: Props) {
         }
     }, [selectedTask])
 
+    function countdown(counter: number = 0) {
+        setTimeout(() => {
+            if(counter > 0) {
+                setTime(counter - 1);
+                return countdown(counter - 1);
+            }
+        }, 1000);
+    }
+
     return (
         <div className={style.stopwatch}>
             <p className={style.title}>Choose a card and start stopwatch</p>
@@ -26,7 +35,9 @@ export default function Stopwatch({ selectedTask }: Props) {
                 <Watch time={time}/>
             </div>
             <div>
-                <Button>Start</Button>
+                <Button onClick={() => countdown(time)}>
+                    Start
+                </Button>
             </div>
         </div>
     )
