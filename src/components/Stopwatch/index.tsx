@@ -7,9 +7,10 @@ import { useEffect, useState } from "react";
 
 interface Props {
     selectedTask: ITask | undefined
+    finishTask: () => void
 }
 
-export default function Stopwatch({ selectedTask }: Props) {
+export default function Stopwatch({ selectedTask, finishTask }: Props) {
     const [time, setTime] = useState<number>();
 
     // set time only when selectedTask changes
@@ -17,6 +18,7 @@ export default function Stopwatch({ selectedTask }: Props) {
         if (selectedTask?.time) {
             setTime(timeToSeconds(selectedTask.time))
         }
+        finishTask();
     }, [selectedTask])
 
     function countdown(counter: number = 0) {

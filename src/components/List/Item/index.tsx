@@ -16,17 +16,19 @@ export default function Item(
     }: Props) {
     return (
         <li 
-            onClick={() => selectTask({
+            onClick={() => !finished && selectTask({
                 task,
                 time,
                 selected,
                 finished,
                 id
             })}
-            className={`${style.item} ${selected && style.selectedIem}`}
+            className={`${style.item} ${selected && style.selectedIem} ${finished && style.finishedItem}`}
         >
             <h3>{task}</h3>
             <span>{time}</span>
+            {/* conditional render */}
+            {finished && <span className={style.check} aria-label="completed task"></span>}
         </li>
     )
 }
